@@ -20,6 +20,12 @@
  */
 function sumOdds(numbers) {
   // Your code here
+  let sum = 0;
+  numbers.forEach((num) => {
+    if (num % 2 === 1) sum += num;
+  });
+
+  return sum;
 }
 
 // console.log(sumOdds([3, 7, 8, 15, 2, 1, 13]));
@@ -38,6 +44,12 @@ function sumOdds(numbers) {
  */
 function characterCount(string, c) {
   // Your code here
+  let found = 0;
+  //for charactore we have to use for
+  for (const str of string) {
+    if (str.isUpperCase() === c.isUpperCase()) found++;
+  }
+  return found;
 }
 
 // console.log(characterCount("Character Count is clever", "c"));
@@ -59,6 +71,15 @@ function characterCount(string, c) {
  */
 function differences(numbers) {
   // Your code here
+  const diff = [];
+  const sumofdiff = 0;
+
+  for (let i = 1; i < numbers.length; i++) {
+    sumofdiff = numbers[i] - numbers[i - 1];
+    diff.push(sumofdiff);
+  }
+
+  return diff;
 }
 
 // console.log(differences([11, 35, 52, 14, 56]));
@@ -81,6 +102,7 @@ function differences(numbers) {
  */
 function largestIncrement(numbers) {
   // Your code here
+  return Math.max(differences(numbers));
 }
 
 // console.log(largestIncrement([11, 35, 52, 14, 56, 601, 777, 888, 999]));
@@ -98,6 +120,12 @@ function largestIncrement(numbers) {
  */
 function afterX(numbers, x) {
   // Your code here
+  numbers.forEach((num) => {
+    if (x === findIndex(num)) {
+      numbers.slice(findIndex(num) + 1);
+    }
+    return numbers;
+  });
 }
 
 // console.log(afterX([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));
@@ -115,6 +143,7 @@ function afterX(numbers, x) {
  */
 function abbreviate(firstName, lastName) {
   // Your code here
+  return `${firstName[0]} ${lastName[0]}`.toLocaleUpperCase();
 }
 
 // console.log(abbreviate("miss", "Stephane"));
@@ -131,6 +160,9 @@ function abbreviate(firstName, lastName) {
  */
 function isUpperCase(string) {
   // Your code here
+  //return string.map((s) => s.isUpperCase());
+
+  return string === string.toLocaleUpperCase();
 }
 
 // console.log(isUpperCase("JCREW"));
@@ -147,6 +179,7 @@ function isUpperCase(string) {
  */
 function elementInArray(numbers, x) {
   // Your code here
+  return numbers.filter((num) => num === x);
 }
 
 // console.log(elementInArray([5, 6, 7], 8));
@@ -163,6 +196,14 @@ function elementInArray(numbers, x) {
  */
 function reverseString(string) {
   // Your code here
+
+  const revers = [];
+
+  while (string != null) {
+    revers.push(string.length - 1);
+    string.pop();
+  }
+  return revers;
 }
 
 // console.log(reverseString("CODED"));
