@@ -44,8 +44,7 @@ function sumOdds(numbers) {
  */
 function characterCount(string, c) {
   // Your code here
-  const found = 0;
-  //for charactore we have to use for
+  let found = 0;
   for (const sstr of string) {
     if (sstr.toLocaleUpperCase() === c.toLocaleUpperCase()) {
       found++;
@@ -75,7 +74,7 @@ function characterCount(string, c) {
 function differences(numbers) {
   // Your code here
   const diff = [];
-  const sumofdiff = 0;
+  let sumofdiff = 0;
 
   for (let i = 1; i < numbers.length; i++) {
     sumofdiff = numbers[i] - numbers[i - 1];
@@ -142,6 +141,7 @@ function afterX(numbers, x) {
  */
 function abbreviate(firstName, lastName) {
   // Your code here
+
   return `${firstName[0]} ${lastName[0]}`.toLocaleUpperCase();
 }
 
@@ -158,10 +158,9 @@ function abbreviate(firstName, lastName) {
  *
  */
 function isUpperCase(string) {
-  // Your code here
-  //return string.map((s) => s.isUpperCase());
-
-  return string === string.toLocaleUpperCase();
+  if (string === string.toLocaleUpperCase()) {
+    return true;
+  } else return false;
 }
 
 // console.log(isUpperCase("JCREW"));
@@ -178,7 +177,9 @@ function isUpperCase(string) {
  */
 function elementInArray(numbers, x) {
   // Your code here
+
   return numbers.includes(x);
+  //return numbers.filter((num) => num === x);
 }
 
 // console.log(elementInArray([5, 6, 7], 8));
@@ -196,15 +197,7 @@ function elementInArray(numbers, x) {
 function reverseString(string) {
   // Your code here
 
-  let revers = [];
-  str = string.length - 1;
-
-  while (string != null) {
-    revers.push(str);
-    // string.pop();
-  }
-  string.pop();
-  return revers;
+  return string.split("").reverse().join("");
 }
 
 // console.log(reverseString("CODED"));
