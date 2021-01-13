@@ -44,11 +44,14 @@ function sumOdds(numbers) {
  */
 function characterCount(string, c) {
   // Your code here
-  let found = 0;
+  const found = 0;
   //for charactore we have to use for
-  for (const str of string) {
-    if (str.isUpperCase() === c.isUpperCase()) found++;
+  for (const sstr of string) {
+    if (sstr.toLocaleUpperCase() === c.toLocaleUpperCase()) {
+      found++;
+    }
   }
+
   return found;
 }
 
@@ -102,7 +105,7 @@ function differences(numbers) {
  */
 function largestIncrement(numbers) {
   // Your code here
-  return Math.max(differences(numbers));
+  return Math.max(...differences(numbers));
 }
 
 // console.log(largestIncrement([11, 35, 52, 14, 56, 601, 777, 888, 999]));
@@ -120,12 +123,8 @@ function largestIncrement(numbers) {
  */
 function afterX(numbers, x) {
   // Your code here
-  numbers.forEach((num) => {
-    if (x === findIndex(num)) {
-      numbers.slice(findIndex(num) + 1);
-    }
-    return numbers;
-  });
+  const a = numbers.findIndex((element) => element === x);
+  return numbers.slice(a + 1);
 }
 
 // console.log(afterX([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));
@@ -179,7 +178,7 @@ function isUpperCase(string) {
  */
 function elementInArray(numbers, x) {
   // Your code here
-  return numbers.filter((num) => num === x);
+  return numbers.includes(x);
 }
 
 // console.log(elementInArray([5, 6, 7], 8));
@@ -197,12 +196,14 @@ function elementInArray(numbers, x) {
 function reverseString(string) {
   // Your code here
 
-  const revers = [];
+  let revers = [];
+  str = string.length - 1;
 
   while (string != null) {
-    revers.push(string.length - 1);
-    string.pop();
+    revers.push(str);
+    // string.pop();
   }
+  string.pop();
   return revers;
 }
 
